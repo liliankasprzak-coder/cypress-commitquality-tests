@@ -1,0 +1,24 @@
+{
+  "name": "cypress-commitquality-tests",
+  "version": "1.0.0",
+  "description": "Testes E2E (UI) da aplicação CommitQuality com Cypress",
+  "author": "Lilian Kasprzak",
+  "license": "MIT",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:ui": "cypress run --spec \"cypress/e2e/exercicio2_commitquality_tests/**/*.cy.js\""
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "cypress": "^15.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liliankasprzak-coder/cypress-commitquality-tests.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liliankasprzak-coder/cypress-commitquality-tests/issues"
+  },
+  "homepage": "https://github.com/liliankasprzak-coder/cypress-commitquality-tests#readme"
+}

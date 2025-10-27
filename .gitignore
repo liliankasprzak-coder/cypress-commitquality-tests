@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Cypress artifacts
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Backups and archives
+*.zip
+backup-*.zip
+.backup-temp/
+
+# Editor/OS
+.vscode/
+.idea/
+.history/
+.DS_Store
+Thumbs.db
+
+# Temp
+.temp/
+.tmp*
+
+# Environment files
+.env
+.env.*
