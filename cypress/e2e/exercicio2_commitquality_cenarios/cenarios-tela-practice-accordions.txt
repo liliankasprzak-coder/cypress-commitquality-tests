@@ -1,0 +1,62 @@
+Funcionalidade: Validar funcionalidades dos Accordions na prática
+
+Cenário 1: Validar cliques do Accordion 1
+  Dado que estou na página Practice Accordions
+  Quando clico no Accordion 1
+  E clico no botão de clique básico
+  Então devo ver a mensagem "Button clicked"
+  Quando faço duplo clique
+  Então devo ver a mensagem "Button double clicked"
+  Quando clico com botão direito
+  Então devo ver a mensagem "Button right mouse clicked"
+
+Cenário 2: Validar Radio Buttons do Accordion 2
+  Dado que estou na página Practice Accordions
+  Quando localizo e clico no Accordion 2
+  E clico no radio button 1
+  Então devo ver a mensagem "option1 clicked"
+  Quando clico no radio button 2
+  Então devo ver a mensagem "option2 clicked"
+
+Cenário 3: Validar checkboxes do Accordion 3
+  Dado que estou na página Practice Accordions
+  Quando localizo e clico no Accordion 3
+  E marco o checkbox 1
+  Então devo ver a mensagem "Checkbox 1 checked"
+  E desmarco o checkbox 1
+  Quando marco o checkbox 2
+  Então devo ver a mensagem "Checkbox 2 checked"
+  E desmarco o checkbox 2
+  Quando marco o checkbox 3
+  Então devo ver a mensagem "Checkbox 3 checked"
+  E desmarco o checkbox 3
+
+Cenário 4: Clicar em Products
+  Dado que estou na página Practice Accordions
+  Quando clico em "Products"
+  Então o link deve redirecionar
+
+Cenário 5: Clicar em Add Product
+  Dado que estou na página Practice Accordions
+  Quando clico em "Add Product"
+  Então devo ser redirecionado para a página Add Product
+
+Cenário 6: Clicar em Practice
+  Dado que estou na página Practice Accordions
+  Quando clico em "Practice"
+  Então devo ser redirecionado para a página Practice
+
+Cenário 7: Clicar em Learn
+  Dado que estou na página Practice Accordions
+  Quando clico em "Learn"
+  Então o link deve estar funcional
+
+Cenário 8: Clicar em Login
+  Dado que estou na página Practice Accordions
+  Quando clico em "Login"
+  Então devo ser redirecionado para a página Login
+
+Cenário 9: Clicar em Back to Practice
+  Dado que estou na página Practice Accordions
+  Quando clico em "Back to Practice"
+  Então devo voltar para a página Practice

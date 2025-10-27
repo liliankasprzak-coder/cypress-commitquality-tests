@@ -1,0 +1,45 @@
+Funcionalidade: Validar Iframe
+
+Cenário 1-4: Navegação dentro do iframe (Add Product, Practice, Learn, Login)
+  Dado que estou na página com iframe
+  Quando clico nos links dentro do iframe
+  Então os links devem funcionar corretamente
+
+Cenário 5: Validar o Scroll da página
+  Dado que estou na página com iframe
+  Quando faço scroll até o final
+  E faço scroll até o topo
+  Então o scroll deve funcionar corretamente
+
+Cenário 6-8: Validar botões (Filter, Reset, Show More)
+  Dado que estou na página com iframe
+  Quando clico nos botões dentro do iframe
+  Então os botões devem funcionar corretamente
+
+Cenário 9: Adicionar um produto
+  Dado que estou na página com iframe
+  Quando clico em "Add a Product"
+  E preencho todos os campos (Name, Price, Date)
+  E clico em Submit
+  Então o produto deve ser adicionado com sucesso
+
+Cenário 11-14: Validar campos obrigatórios do formulário
+  Dado que estou na página com iframe
+  Quando tento submeter o formulário sem preencher os campos
+  Então devem aparecer mensagens de erro apropriadas
+
+Cenário 15: Adicionar um produto completo
+  Dado que estou na página com iframe
+  Quando preencho todos os campos corretamente
+  E clico em Submit
+  Então o produto deve aparecer na lista
+
+Cenário 16-17: Testar cancelamento do formulário
+  Dado que estou na página com iframe
+  Quando preencho o formulário e cancelo
+  Então devo voltar para a lista de produtos
+
+Cenário 18-20: Validações de campos (números no nome, letras no preço, data futura)
+  Dado que estou na página com iframe
+  Quando testo diferentes tipos de validação
+  Então o sistema deve validar corretamente cada campo

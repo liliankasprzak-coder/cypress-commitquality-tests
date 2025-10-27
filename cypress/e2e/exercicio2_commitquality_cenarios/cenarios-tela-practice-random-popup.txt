@@ -1,0 +1,18 @@
+Funcionalidade: Validar Random Popup
+
+Cenário 1-5: Navegação (Products, Add Product, Practice, Learn, Login)
+  Dado que estou na página practice-random
+  Quando clico nos links de navegação
+  Então sou redirecionado corretamente
+
+Cenário 6: Clicar em Back to Practice
+  Dado que estou na página practice-random
+  Quando clico em "Back to Practice"
+  Então devo voltar para a página Practice
+
+Cenário 7: Validar o Random Popup
+  Dado que estou na página Practice
+  Quando navego para a página de random popup
+  E aguardo o popup aparecer
+  Então devo conseguir fechar o popup clicando em "Close"
+  E o popup deve desaparecer

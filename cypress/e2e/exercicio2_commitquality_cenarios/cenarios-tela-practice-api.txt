@@ -1,0 +1,33 @@
+Funcionalidade: Validar requisições API na prática
+
+Cenário 1: Clicar em Products
+  Dado que estou na página practice-api
+  Quando clico em "Products"
+  Então sou redirecionado e saio da página practice-api
+
+Cenário 2: Clicar em Add Product
+  Dado que estou na página practice-api
+  Quando clico em "Add Product"
+  Então sou redirecionado para "/add-product"
+
+Cenário 3: Clicar em Practice
+  Dado que estou na página practice-api
+  Quando clico em "Practice"
+  Então sou redirecionado para "/practice"
+
+Cenário 4: Clicar em Learn
+  Dado que estou na página practice-api
+  Quando clico em "Learn"
+  Então o link deve estar funcional
+
+Cenário 5: Clicar em Login
+  Dado que estou na página practice-api
+  Quando clico em "Login"
+  Então sou redirecionado para "/login"
+
+Cenário 6: Executar uma requisição GET
+  Dado que estou na página practice-api
+  Quando clico no botão "Make API Request(GET)"
+  Então deve exibir "Status Code: 200"
+  E deve exibir a resposta da requisição em formato JSON
+  E validar estrutura completa da resposta com userId, id, title e completed

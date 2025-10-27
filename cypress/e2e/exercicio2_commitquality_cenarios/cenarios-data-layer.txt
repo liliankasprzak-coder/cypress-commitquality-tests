@@ -1,0 +1,41 @@
+Funcionalidade: Validar data layer mockada
+
+Cenário: Deve exibir a data layer mockada na tag script
+  Dado que naveguei para a página practice-mock-data-layer
+  Quando verifico a window
+  Então a data layer deve existir
+
+Cenário: Deve validar estrutura da data layer mockada
+  Dado que naveguei para a página practice-mock-data-layer
+  Quando verifico a estrutura da data layer
+  Então deve ser um objeto válido
+  E deve ter propriedades esperadas como pageName
+
+Cenário: Deve conter dados mockados corretos
+  Dado que naveguei para a página practice-mock-data-layer
+  Quando acesso a data layer
+  Então ela não deve estar vazia
+
+Cenário: Deve permitir acesso via window object
+  Dado que naveguei para a página practice-mock-data-layer
+  Quando acesso window.dataLayer
+  Então deve estar definido e não ser null
+
+Cenário: Deve validar eventos na data layer
+  Dado que naveguei para a página practice-mock-data-layer
+  Quando verifico o objeto dataLayer
+  Então deve ter propriedades (eventos/dados)
+  E deve ter mais de 0 chaves
+
+Cenário: Deve verificar se data layer não está vazia
+  Dado que naveguei para a página practice-mock-data-layer
+  Quando verifico a data layer
+  Então ela não deve estar vazia
+  E deve ter múltiplas propriedades
+
+Cenário: Inspecionar estrutura completa da data layer
+  Dado que naveguei para a página practice-mock-data-layer
+  Quando capturo a data layer
+  Então devo logar o tipo e tamanho
+  E devo salvar em arquivo para análise
+  E devo verificar variáveis que contêm "data" ou "layer"

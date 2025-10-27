@@ -1,0 +1,37 @@
+Funcionalidade: Validar componentes gerais na prática
+
+Cenário 1: Validar Buttons no componente geral
+  Dado que estou na página Practice
+  Quando clico em "Buttons"
+  E clico no botão de clique básico
+  Então devo ver a mensagem "Button clicked"
+  Quando faço duplo clique
+  Então devo ver a mensagem "Button double clicked"
+  Quando clico com botão direito
+  Então devo ver a mensagem "Button right mouse clicked"
+
+Cenário 2: Validar Radio Buttons no componente geral
+  Dado que estou na página Practice
+  Quando clico em "Radio Buttons"
+  E clico na opção 1
+  Então devo ver a mensagem "option1 clicked"
+  Quando clico na opção 2
+  Então devo ver a mensagem "option2 clicked"
+
+Cenário 3: Validar Dropdowns no componente geral
+  Dado que estou na página Practice
+  Quando clico em "Dropdowns"
+  E seleciono as opções 1, 2 e 3
+  Então todas devem ser selecionadas corretamente
+
+Cenário 4: Validar Checkboxes no componente geral
+  Dado que estou na página Practice
+  Quando clico em "Checkboxes"
+  E marco os checkboxes 1, 2 e 3
+  Então devo ver as mensagens de confirmação para cada um
+  E posso desmarcá-los com sucesso
+
+Cenário 5-7: Validar links (My Youtube, Open in new tab, Go to practice page)
+  Dado que estou na página Practice
+  Quando clico em "Links"
+  Então valido os atributos dos links e seus redirecionamentos

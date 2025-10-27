@@ -1,0 +1,28 @@
+Funcionalidade: Validar funcionalidades da tela Practice
+
+Cenário 1: Validar acesso à página Practice
+  Dado que naveguei para a página Practice
+  Então devo estar na URL correta
+  E o conteúdo principal deve estar visível
+
+Cenário 2: Validar se a URL está correta
+  Dado que estou na tela Practice
+  Então a URL deve conter "/practice"
+  E deve conter "commitquality.com"
+
+Cenário 3: Validar refresh de tela
+  Dado que estou na tela Practice
+  Quando atualizo a página
+  Então o conteúdo principal deve continuar visível
+  E a URL deve continuar contendo "/practice"
+
+Cenário 4: Validar responsividade da tela
+  Dado que estou na tela Practice
+  Quando testo em diferentes viewports
+  Então a página deve ser responsiva em todos
+
+Cenário 5: Validar layout da tela Practice
+  Dado que estou na tela Practice
+  Quando analiso os elementos da página
+  Então devo encontrar títulos
+  E devo encontrar links ou botões

@@ -1,0 +1,7 @@
+Funcionalidade: Validar File Download
+
+Cenário 1: Validar File Download
+  Dado que estou na página Practice
+  Quando clico no card para acessar a página de download
+  E clico no botão "Download File"
+  Então valido que o arquivo foi baixado

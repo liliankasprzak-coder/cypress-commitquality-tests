@@ -1,0 +1,189 @@
+========================================
+CENÁRIOS DE TESTE - PRACTICE MOCK DATA LAYER
+========================================
+Aplicação: CommitQuality
+URL: https://commitquality.com/practice-mock-data-layer
+Data: 26/10/2025
+Autora: Lilian Kasprzak
+Analista de QA
+Total de cenários: 10
+
+========================================
+CENÁRIO 1: Deve exibir a datalayer mockada na tag script
+========================================
+Objetivo: Verificar se a datalayer existe no objeto window
+Pré-condição: Usuário na página Practice Mock Data Layer
+Passos:
+  1. Navegar para /practice
+  2. Clicar no card Mock Datalayer
+  3. Acessar window.dataLayer
+Resultado esperado:
+  - window.dataLayer deve existir
+  - dataLayer não deve ser undefined
+Status: ✅
+
+========================================
+CENÁRIO 2: Deve validar estrutura da datalayer mockada
+========================================
+Objetivo: Verificar se a estrutura da datalayer está correta
+Pré-condição: Usuário na página Practice Mock Data Layer
+Validações:
+  - dataLayer deve ser um objeto
+  - dataLayer não deve ser null
+  - dataLayer deve ter propriedade "pageName"
+Resultado esperado:
+  - typeof dataLayer === "object"
+  - dataLayer.pageName existe
+Status: ✅
+
+========================================
+CENÁRIO 3: Deve conter dados mockados corretos
+========================================
+Objetivo: Validar que a datalayer contém dados mockados
+Pré-condição: Usuário na página Practice Mock Data Layer
+Passos:
+  1. Acessar window.dataLayer
+  2. Verificar se não está vazio
+Resultado esperado:
+  - dataLayer não deve estar vazio
+  - Deve conter dados mockados
+Status: ✅
+
+========================================
+CENÁRIO 4: Deve permitir acesso via window object
+========================================
+Objetivo: Verificar se dataLayer é acessível via window
+Pré-condição: Usuário na página Practice Mock Data Layer
+Validações:
+  - window deve ter propriedade "dataLayer"
+  - window.dataLayer não deve ser undefined
+  - window.dataLayer não deve ser null
+Resultado esperado:
+  - Acesso bem-sucedido ao window.dataLayer
+Status: ✅
+
+========================================
+CENÁRIO 5: Deve validar eventos na datalayer
+========================================
+Objetivo: Verificar se a datalayer contém eventos/dados
+Pré-condição: Usuário na página Practice Mock Data Layer
+Passos:
+  1. Acessar window.dataLayer
+  2. Obter chaves do objeto
+  3. Verificar se tem pelo menos 1 propriedade
+  4. Verificar propriedade "pageName"
+Resultado esperado:
+  - Object.keys(dataLayer).length > 0
+  - dataLayer deve ter propriedade "pageName"
+Status: ✅
+
+========================================
+CENÁRIO 6: Deve validar propriedades da datalayer
+========================================
+Objetivo: Listar e validar propriedades do dataLayer
+Pré-condição: Usuário na página Practice Mock Data Layer
+Passos:
+  1. Acessar window.dataLayer
+  2. Obter todas as chaves
+  3. Logar propriedades encontradas
+Resultado esperado:
+  - Deve ter múltiplas propriedades
+  - Log deve exibir todas as chaves
+Status: ✅
+
+========================================
+CENÁRIO 7: Deve verificar se datalayer não está vazia
+========================================
+Objetivo: Garantir que dataLayer contém dados
+Pré-condição: Usuário na página Practice Mock Data Layer
+Validações:
+  - dataLayer não deve estar vazio
+  - Quantidade de chaves deve ser maior que 0
+Resultado esperado:
+  - win.dataLayer.length > 0 ou keys.length > 0
+Status: ✅
+
+========================================
+CENÁRIO 8: Deve validar formato dos dados mockados
+========================================
+Objetivo: Verificar se os dados mockados têm formato válido
+Pré-condição: Usuário na página Practice Mock Data Layer
+Validações:
+  - dataLayer deve ser do tipo "object"
+  - dataLayer não deve ser null
+  - Todos os valores devem ser definidos (not undefined)
+Resultado esperado:
+  - Formato válido para todos os dados
+  - Nenhum valor undefined
+Status: ✅
+
+========================================
+CENÁRIO 9: Deve verificar presença de campos obrigatórios
+========================================
+Objetivo: Validar campos obrigatórios da datalayer
+Pré-condição: Usuário na página Practice Mock Data Layer
+Nota: TODO - Ajustar conforme campos obrigatórios
+Validações:
+  - Se dataLayer[0] existir, deve ter propriedade "event"
+Resultado esperado:
+  - Campos obrigatórios presentes
+Status: ✅
+
+========================================
+CENÁRIO 10: Deve validar valores mockados vs valores reais
+========================================
+Objetivo: Comparar valores mockados com valores reais esperados
+Pré-condição: Usuário na página Practice Mock Data Layer
+Nota: TODO - Validar se valores mockados estão corretos
+Validações:
+  - dataLayer deve existir
+  - Valores mockados devem corresponder ao esperado
+Resultado esperado:
+  - Valores mockados corretos
+Status: ✅
+
+========================================
+RESUMO DA EXECUÇÃO
+========================================
+Total de testes: 10
+✅ Passou: 10
+❌ Falhou: 0
+⏭️ Pulado: 0
+Browser: Chrome
+
+========================================
+ESTRUTURA DA DATALAYER
+========================================
+Formato: Objeto JavaScript (não array)
+Propriedades validadas:
+  - pageName: Nome da página
+  - Outras propriedades específicas da aplicação
+
+========================================
+OBSERVAÇÕES TÉCNICAS
+========================================
+1. CommitQuality usa dataLayer como OBJETO, não array
+2. Acesso via window.dataLayer
+3. Propriedade principal validada: "pageName"
+4. TODOs identificados para validações futuras:
+   - Validar campos obrigatórios específicos
+   - Comparar valores mockados com valores reais
+   - Ajustar validações conforme necessidade do projeto
+
+========================================
+COMANDOS CYPRESS UTILIZADOS
+========================================
+- cy.visit() - Navegar para página
+- cy.get('[data-testid]') - Localizar elementos
+- cy.window() - Acessar objeto window
+- cy.url() - Validar URL
+- expect() - Assertions do Chai
+
+========================================
+CASOS DE USO
+========================================
+Este teste é útil para:
+1. Validar implementação de analytics/tracking
+2. Garantir que dados mockados estão corretos em testes
+3. Verificar estrutura da datalayer antes de produção
+4. Testar integração com ferramentas de analytics (Google Analytics, Adobe Analytics, etc.)

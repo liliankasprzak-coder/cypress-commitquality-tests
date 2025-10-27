@@ -1,0 +1,8 @@
+Funcionalidade: Validar funcionalidades da tela Learn
+
+Cenário 1: Validar direcionamento ao clicar em "Learn"
+  Dado que estou na página inicial do CommitQuality
+  Quando verifico o link "Learn"
+  Então o href deve apontar para o YouTube
+  Quando clico no link "Learn"
+  Então devo ser redirecionado para o YouTube na mesma aba

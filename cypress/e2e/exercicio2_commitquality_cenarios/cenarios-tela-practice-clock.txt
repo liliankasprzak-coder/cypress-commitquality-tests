@@ -1,0 +1,54 @@
+Funcionalidade: Validar Practice Clock
+
+Cenário 1: Clicar em Products
+  Dado que estou na tela de Practice Clock
+  Quando clico no link "Products"
+  Então sou redirecionado para a página de produtos
+  E a URL não deve mais conter "/practice-clock"
+
+Cenário 2: Clicar em Add Product
+  Dado que estou na tela de Practice Clock
+  Quando clico no link "Add Product"
+  Então sou redirecionado para "/add-product"
+
+Cenário 3: Clicar em Practice
+  Dado que estou na tela de Practice Clock
+  Quando clico no link "Practice"
+  Então sou redirecionado para "/practice"
+
+Cenário 4: Clicar em Learn
+  Dado que estou na tela de Practice Clock
+  Quando clico no link "Learn"
+  Então o link Learn é clicado com sucesso
+
+Cenário 5: Clicar em Login
+  Dado que estou na tela de Practice Clock
+  Quando clico no link "Login"
+  Então sou redirecionado para "/login"
+
+Cenário 6: Clicar em Back to Practice
+  Dado que estou na tela de Practice Clock
+  Quando clico no link "back to practice"
+  Então volto para a página "/practice"
+  E a URL não deve mais conter "/practice-clock"
+
+Cenário 7: Validar funcionalidade do Clock
+  Dado que estou na tela de Practice Clock
+  Quando valido o relógio atual
+  Então o relógio deve estar visível
+  E deve estar no formato HH:MM:SS
+  Quando aguardo 2 segundos
+  Então o horário deve ser atualizado
+  E deve mostrar um horário diferente do inicial
+
+Cenário 8: Validar prêmio ao final da contagem regressiva
+  Dado que estou na tela de Practice Clock
+  Quando o temporizador está visível
+  E aguardo até a contagem chegar a 0:00
+  Então a mensagem "YOU WON... GO SUBSCRIBE TO COMMIT QUALITY" deve aparecer
+
+Cenário 9: Validar textos da página
+  Dado que estou na tela de Practice Clock
+  Quando analiso os textos da página
+  Então devo ver o texto "Current time"
+  E devo ver o texto "COUNTDOWN TIMER TO WIN A SPECIAL PRIZE"

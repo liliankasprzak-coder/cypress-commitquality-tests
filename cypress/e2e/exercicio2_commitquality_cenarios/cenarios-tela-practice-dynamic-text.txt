@@ -1,0 +1,27 @@
+Funcionalidade: Validar Dynamic Text
+
+Cenário 1-5: Navegação (Products, Add Product, Practice, Learn, Login)
+  Dado que estou na página Dynamic Text
+  Quando clico nos links de navegação
+  Então sou redirecionado corretamente
+
+Cenário 6: Validar botão "Always visible" está visível
+  Dado que estou na página Dynamic Text
+  Então o botão "Always visible" deve estar visível
+
+Cenário 7: Validar mudança de estado do botão para "loading"
+  Dado que estou na página Dynamic Text
+  Quando clico no botão "Always visible"
+  Então o botão deve mudar para "loading"
+
+Cenário 8: Validar texto final após 5 segundos
+  Dado que estou na página Dynamic Text
+  Quando clico no botão "Always visible"
+  E aguardo o estado "loading"
+  Então após 5 segundos deve exibir "I am visible after 5 seconds"
+
+Cenário 9: Validar fluxo completo de transformação do botão
+  Dado que o botão "Always visible" está visível
+  Quando clico no botão
+  Então deve passar por "loading"
+  E após 5 segundos deve exibir o texto final

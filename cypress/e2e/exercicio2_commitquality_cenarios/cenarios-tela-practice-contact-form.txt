@@ -1,0 +1,45 @@
+Funcionalidade: Validar Contact Us Form
+
+Cenário 1 a 6: Navegação (Products, Add Product, Practice, Learn, Login, Back to Practice)
+  Dado que estou na página Contact Form
+  Quando clico nos links de navegação
+  Então sou redirecionado corretamente
+
+Cenário 7: Preencher somente nome e clicar em Submit
+  Dado que estou na página Contact Form
+  Quando preencho apenas o campo nome
+  E clico em Submit
+  Então devem aparecer mensagens de erro para os campos obrigatórios
+
+Cenário 8: Preencher somente o e-mail e clicar em Submit
+  Dado que estou na página Contact Form
+  Quando preencho apenas o campo e-mail
+  E clico em Submit
+  Então devem aparecer mensagens de erro para os campos obrigatórios
+
+Cenário 9-12: Testes de campos individuais
+  Dado que estou na página Contact Form
+  Quando preencho apenas um campo por vez
+  E clico em Submit
+  Então devem aparecer mensagens de erro para os outros campos obrigatórios
+
+Cenário 13: Não preencher nenhum campo e clicar em Submit
+  Dado que estou na página Contact Form
+  Quando clico em Submit sem preencher nada
+  Então devem aparecer todas as mensagens de erro
+
+Cenário 14: Preencher todos os campos e clicar em Submit
+  Dado que estou na página Contact Form
+  Quando preencho todos os campos corretamente
+  E clico em Submit
+  Então o formulário deve ser enviado com sucesso
+
+Cenário 15: Inserir uma data maior que a data atual
+  Dado que estou na página Contact Form
+  Quando insiro uma data futura
+  Então o sistema deve permitir a data futura
+
+Cenário 16: Inserir números no campo Nome
+  Dado que estou na página Contact Form
+  Quando insiro números no campo nome
+  Então o sistema deve permitir números no nome

@@ -1,0 +1,76 @@
+Funcionalidade: Validar funcionalidades da tela de login
+
+Cenário 1: Validar acesso a página
+  Dado que acesso a página inicial do CommitQuality
+  Quando clico no link "Login"
+  Então sou direcionado para "https://commitquality.com/login"
+  E vejo o conteúdo da página carregado
+
+Cenário 2: Validar se a URL está correta
+  Dado que estou na tela de login
+  Então a URL deve conter "/login"
+  E deve conter "commitquality.com"
+
+Cenário 3: Validar refresh de tela com o método (Botão refresh)
+  Dado que estou na tela de login
+  Quando atualizo a página usando cy.reload()
+  Então a página recarrega corretamente
+  E continuo na URL "/login"
+  E vejo o conteúdo da página carregado
+
+Cenário 4: Validar refresh de tela com o método (F5)
+  Dado que estou na tela de login
+  Quando pressiono a tecla F5 (simulado com reload)
+  Então a página recarrega corretamente
+  E continuo na URL "/login"
+  E vejo o conteúdo da página carregado
+
+Cenário 5: Validar refresh de tela com o método (Ctrl+R)
+  Dado que estou na tela de login
+  Quando pressiono as teclas Ctrl+R
+  Então a página recarrega corretamente
+  E continuo na URL "/login"
+  E vejo o conteúdo da página carregado
+
+Cenário 6: Validar a responsividade da tela
+  Dado que estou na tela de login
+  Quando altero o viewport para 800x600 (mobile)
+  Então a página deve ser visível e responsiva
+  Quando altero o viewport para 1280x720 (tablet)
+  Então a página deve ser visível e responsiva
+  Quando altero o viewport para 1920x1080 (desktop)
+  Então a página deve ser visível e responsiva
+
+Cenário 7: Validar o layout da tela de login
+  Dado que estou na tela de login
+  Quando analiso os elementos da página
+  Então devo encontrar campos de input
+  E devo encontrar botões disponíveis
+
+Cenário 8: Realizar o login com sucesso
+  Dado que estou na tela de login
+  Quando preencho o campo Username com dados válidos usando faker
+  E preencho o campo Password com dados válidos usando faker
+  E clico no botão de login
+  Então o sistema deve processar o login
+
+Cenário 9: Validar campos obrigatórios
+  Dado que estou na tela de login
+  Quando deixo os campos vazios
+  E clico no botão de login
+  Então permaneço na tela de login
+  E a URL deve continuar contendo "/login"
+
+Cenário 10: Preencher somente o campo Username
+  Dado que estou na tela de login
+  Quando preencho apenas o campo Username com dados faker
+  E deixo o campo Password vazio
+  E clico no botão de login
+  Então o sistema valida os campos obrigatórios
+
+Cenário 11: Preencher somente o Password
+  Dado que estou na tela de login
+  Quando deixo o campo Username vazio
+  E preencho apenas o campo Password com dados faker
+  E clico no botão de login
+  Então o sistema valida os campos obrigatórios

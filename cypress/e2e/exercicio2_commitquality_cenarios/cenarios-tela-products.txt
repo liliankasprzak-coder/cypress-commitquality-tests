@@ -1,0 +1,132 @@
+Funcionalidade: Validar tela de Products
+  Como um usuário do sistema
+  Quero validar todas as funcionalidades da tela de produtos
+  Para garantir que a aplicação está funcionando corretamente
+
+Cenário 1: Acessar a URL
+  Dado que estou com o navegador aberto
+  Quando acesso a URL "https://commitquality.com/"
+  Então devo visualizar a página inicial
+  E a URL deve ser "https://commitquality.com/"
+
+Cenário 2: Validar refresh de tela
+  Dado que estou na página inicial
+  Quando faço refresh da página
+  Então a página deve recarregar corretamente
+  E a URL deve permanecer "https://commitquality.com/"
+  E o conteúdo deve estar visível
+
+Cenário 3: Validar responsividade da tela
+  Dado que estou na página inicial
+  Quando testo a página em diferentes resoluções
+  Então a página deve se adaptar corretamente
+  E todos os elementos devem estar visíveis
+
+Cenário 4: Validar layout da tela Products
+  Dado que estou na página inicial
+  Quando visualizo a página
+  Então devo ver títulos (h1, h2, h3)
+  E devo ver botões e links
+  E o layout deve estar organizado
+
+Cenário 5: Clicar em Add Product
+  Dado que estou na página inicial
+  Quando clico em "Add Product"
+  Então devo ser redirecionado para "/add-product"
+
+Cenário 6: Clicar em Practice
+  Dado que estou na página inicial
+  Quando clico em "Practice"
+  Então devo ser redirecionado para "/practice"
+
+Cenário 7: Clicar em Learn
+  Dado que estou na página inicial
+  Quando clico em "Learn"
+  Então o link deve ser acionado
+
+Cenário 8: Clicar em Login
+  Dado que estou na página inicial
+  Quando clico em "Login"
+  Então devo ser redirecionado para "/login"
+
+Cenário 9: Realizar um filtro
+  Dado que estou na página de produtos
+  Quando clico no botão "Filter"
+  Então o filtro deve ser aplicado
+  E os produtos devem ser filtrados
+
+Cenário 10: Fazer um reset
+  Dado que estou na página de produtos
+  E já apliquei algum filtro
+  Quando clico no botão "Reset"
+  Então os filtros devem ser removidos
+  E todos os produtos devem ser exibidos novamente
+
+Cenário 11: Apresentar mais produtos na página
+  Dado que estou na página de produtos
+  E existem mais produtos para carregar
+  Quando clico no botão "Show More"
+  Então mais produtos devem ser exibidos na lista
+
+Cenário 12: Adicionar um produto com sucesso
+  Dado que estou na página de produtos
+  Quando clico em "Add a product"
+  E preencho o campo "Nome do produto" com "Product Test"
+  E preencho o campo "Preço" com um valor aleatório
+  E preencho o campo "Data" com "2025-01-15"
+  E clico em "Submit"
+  Então o produto deve ser adicionado à lista
+  E devo visualizar o produto "Product Test" na tabela
+
+Cenário 13: Adicionar produto sem preencher campos obrigatórios
+  Dado que estou na página de produtos
+  Quando clico em "Add a product"
+  E clico em "Submit" sem preencher nenhum campo
+  Então devo ver a mensagem de erro "Name must be at least 2 characters"
+  E devo ver a mensagem de erro "Price must not be empty and within 10 digits"
+  E devo ver a mensagem de erro "Date must not be empty"
+  E devo ver a mensagem de erro "Errors must be resolved before submitting"
+
+Cenário 14: Adicionar produto - Preencher todos os campos e cancelar
+  Dado que estou na página de produtos
+  Quando clico em "Add a product"
+  E preencho o campo "Nome do produto" com "Product Cancel Test"
+  E preencho o campo "Preço" com "300"
+  E preencho o campo "Data" com "2025-02-01"
+  E clico em "cancel"
+  Então devo voltar para a lista de produtos
+  E o produto não deve ser adicionado
+
+Cenário 15: Adicionar produto - Não preencher e cancelar
+  Dado que estou na página de produtos
+  Quando clico em "Add a product"
+  E clico em "cancel" sem preencher nenhum campo
+  Então devo voltar para a lista de produtos
+  E nenhum produto deve ser adicionado
+
+Cenário 16: Preencher campo Nome com números
+  Dado que estou no formulário de adicionar produto
+  Quando preencho o campo "Nome" com "123456"
+  E preencho o campo "Preço" com "100"
+  E preencho o campo "Data" com "2025-01-15"
+  E clico em "Submit"
+  Então o produto deve ser adicionado com sucesso
+  E devo visualizar o produto "123456" na tabela
+  E o sistema deve permitir números no campo Nome
+
+Cenário 17: Preencher campo Price com letras
+  Dado que estou no formulário de adicionar produto
+  Quando preencho o campo "Nome" com "Product Price Test"
+  E tento preencher o campo "Preço" com "abcdef"
+  E preencho o campo "Data" com "2025-01-15"
+  Então o campo "Preço" deve permanecer vazio
+  E o sistema não deve permitir letras no campo Preço
+
+Cenário 18: Inserir uma data maior que a data atual
+  Dado que estou no formulário de adicionar produto
+  Quando preencho o campo "Nome" com "Product Future Date"
+  E preencho o campo "Preço" com "200"
+  E preencho o campo "Data" com "2029-05-15"
+  Então devo ver a mensagem de erro "Date must not be in the future"
+  E devo ver a mensagem "Errors must be resolved before submitting"
+  E o sistema deve bloquear o envio do formulário

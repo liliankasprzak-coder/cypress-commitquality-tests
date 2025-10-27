@@ -1,0 +1,94 @@
+Funcionalidade: Validar funcionalidades da tela de adicionar produto
+
+Cenário 1: Validar acesso a página
+  Dado que acesso a página inicial do CommitQuality
+  Quando clico no link "Add Product"
+  Então sou direcionado para "https://commitquality.com/add-product"
+  E vejo o conteúdo da página carregado
+
+Cenário 2: Validar se a URL está correta
+  Dado que estou na tela de adicionar produto
+  Então a URL deve conter "/add-product"
+  E deve conter "commitquality.com"
+
+Cenário 3: Validar refresh de tela com o método (Botão refresh)
+  Dado que estou na tela de adicionar produto
+  Quando atualizo a página usando cy.reload()
+  Então a página recarrega corretamente
+  E continuo na URL "/add-product"
+  E vejo o conteúdo da página carregado
+
+Cenário 4: Validar refresh de tela com o método (F5)
+  Dado que estou na tela de adicionar produto
+  Quando pressiono a tecla F5 (simulado com reload)
+  Então a página recarrega corretamente
+  E continuo na URL "/add-product"
+  E vejo o conteúdo da página carregado
+
+Cenário 5: Validar refresh de tela com o método (Ctrl+R)
+  Dado que estou na tela de adicionar produto
+  Quando pressiono as teclas Ctrl+R
+  Então a página recarrega corretamente
+  E continuo na URL "/add-product"
+  E vejo o conteúdo da página carregado
+
+Cenário 6: Validar a responsividade da tela
+  Dado que estou na tela de adicionar produto
+  Quando altero o viewport para 800x600 (mobile)
+  Então a página deve ser visível e responsiva
+  Quando altero o viewport para 1280x720 (tablet)
+  Então a página deve ser visível e responsiva
+  Quando altero o viewport para 1920x1080 (desktop)
+  Então a página deve ser visível e responsiva
+
+Cenário 7: Validar o layout da tela de adicionar produto
+  Dado que estou na tela de adicionar produto
+  Quando analiso os elementos da página
+  Então devo encontrar o campo "Name"
+  E devo encontrar o campo "Price"
+  E devo encontrar o campo "Date Stocked"
+  E devo encontrar o botão "Submit"
+  E devo encontrar o botão "cancel"
+
+Cenário 8: Adicionar produto com sucesso
+  Dado que estou na tela de adicionar produto
+  Quando preencho o campo Name com dados válidos usando faker
+  E preencho o campo Price com dados válidos usando faker
+  E preencho o campo Date Stocked com uma data válida
+  E clico no botão Submit
+  Então o produto deve ser adicionado com sucesso
+
+Cenário 9: Validar campos obrigatórios
+  Dado que estou na tela de adicionar produto
+  Quando deixo os campos vazios
+  E clico no botão Submit
+  Então permaneço na tela de adicionar produto
+  E a URL deve continuar contendo "/add-product"
+
+Cenário 10: Preencher somente o campo Name
+  Dado que estou na tela de adicionar produto
+  Quando preencho apenas o campo Name com dados faker
+  E deixo os campos Price e Date Stocked vazios
+  E clico no botão Submit
+  Então o sistema valida os campos obrigatórios
+
+Cenário 11: Preencher somente o campo Price
+  Dado que estou na tela de adicionar produto
+  Quando deixo o campo Name vazio
+  E preencho apenas o campo Price com dados faker
+  E deixo o campo Date Stocked vazio
+  E clico no botão Submit
+  Então o sistema valida os campos obrigatórios
+
+Cenário 12: Preencher somente o campo Date Stocked
+  Dado que estou na tela de adicionar produto
+  Quando deixo os campos Name e Price vazios
+  E preencho apenas o campo Date Stocked com uma data válida
+  E clico no botão Submit
+  Então o sistema valida os campos obrigatórios
+
+Cenário 13: Validar botão Cancel
+  Dado que estou na tela de adicionar produto
+  Quando clico no botão cancel
+  Então sou redirecionado para a página inicial
+  E a URL deve ser "https://commitquality.com/"

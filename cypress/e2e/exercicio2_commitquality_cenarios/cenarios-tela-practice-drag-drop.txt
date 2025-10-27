@@ -1,0 +1,6 @@
+Funcionalidade: Validar Drag and Drop
+
+Cenário 1: Arrastar e soltar com sucesso
+  Dado que estou na página de Drag and Drop
+  Quando arrasto o small-box para o large-box
+  Então deve exibir "Success!" na área de drop

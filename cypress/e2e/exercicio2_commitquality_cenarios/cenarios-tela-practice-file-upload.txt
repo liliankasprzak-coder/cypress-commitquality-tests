@@ -1,0 +1,17 @@
+Funcionalidade: Validar File Upload
+
+Cenário 1-6: Navegação (Products, Add Product, Practice, Learn, Login, Back to Practice)
+  Dado que estou na página File Upload
+  Quando clico nos links de navegação
+  Então sou redirecionado corretamente
+
+Cenário 7: Validar upload de arquivo com sucesso
+  Dado que estou na página File Upload
+  Quando seleciono um arquivo PDF
+  E clico no botão Submit
+  Então deve disparar um alerta com mensagem de sucesso
+
+Cenário 8: Submeter sem anexar arquivo
+  Dado que estou na página File Upload
+  Quando clico no botão Submit sem selecionar arquivo
+  Então deve exibir a mensagem de erro "Please select a file to upload."
