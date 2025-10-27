@@ -1,0 +1,108 @@
+Funcionalidade: Data Layer - Carrinho e Compra
+  Como um analista de dados
+  Quero validar os eventos de carrinho e compra no data layer
+  Para garantir que os dados de conversão estão sendo coletados corretamente
+
+Cenário: Adicionar produto ao carrinho
+  Dado que estou visualizando um produto
+  Quando clico em "Adicionar ao Carrinho"
+  Então o evento add_to_cart deve ser disparado
+  E o data layer deve conter:
+    | campo                          | valor              |
+    | event                          | add_to_cart        |
+    | ecommerce.currency             | BRL                |
+    | ecommerce.value                | 499.90             |
+    | ecommerce.items[0].item_id     | PROD-010           |
+    | ecommerce.items[0].item_name   | Smartphone Samsung |
+    | ecommerce.items[0].price       | 499.90             |
+    | ecommerce.items[0].quantity    | 1                  |
+
+Cenário: Remover produto do carrinho
+  Dado que tenho um produto no carrinho
+  Quando clico em "Remover"
+  Então o evento remove_from_cart deve ser disparado
+  E o data layer deve conter:
+    | campo                          | valor        |
+    | event                          | remove_from_cart |
+    | ecommerce.currency             | BRL          |
+    | ecommerce.value                | 150.00       |
+    | ecommerce.items[0].item_id     | PROD-002     |
+    | ecommerce.items[0].item_name   | Mouse Gamer  |
+
+Cenário: Iniciar processo de checkout
+  Dado que tenho 3 produtos no carrinho
+  Quando clico em "Finalizar Compra"
+  Então o evento begin_checkout deve ser disparado
+  E o data layer deve conter:
+    | campo                | valor         |
+    | event                | begin_checkout |
+    | ecommerce.currency   | BRL           |
+    | ecommerce.value      | 1249.70       |
+    | ecommerce.items      | array com 3 items |
+
+Cenário: Finalizar compra com sucesso
+  Dado que estou no processo de checkout
+  Quando confirmo a compra
+  Então o evento purchase deve ser disparado
+  E o data layer deve conter:
+    | campo                        | valor          |
+    | event                        | purchase       |
+    | ecommerce.transaction_id     | TXN-2025-001   |
+    | ecommerce.affiliation        | Loja Online    |
+    | ecommerce.value              | 1249.70        |
+    | ecommerce.tax                | 124.97         |
+    | ecommerce.shipping           | 50.00          |
+    | ecommerce.currency           | BRL            |
+    | ecommerce.items              | array com 3 items |
+
+Cenário: Validar campos obrigatórios do evento purchase
+  Dado que uma compra foi finalizada
+  Quando o evento purchase é disparado
+  Então o data layer deve conter os campos obrigatórios:
+    | campo                         |
+    | event                         |
+    | ecommerce.transaction_id      |
+    | ecommerce.value               |
+    | ecommerce.currency            |
+    | ecommerce.items               |
+    | ecommerce.items[0].item_id    |
+
+Cenário: Calcular valor total do carrinho com múltiplos produtos
+  Dado que tenho os seguintes produtos no carrinho:
+    | produto         | preço  | quantidade |
+    | Produto 1       | 499.90 | 2          |
+    | Produto 2       | 150.00 | 3          |
+    | Produto 3       | 350.00 | 1          |
+  Quando o evento add_to_cart é disparado
+  Então o valor total deve ser calculado corretamente
+  E o data layer deve conter:
+    | campo                | valor    |
+    | ecommerce.value      | 1799.80  |
+
+Cenário: Validar estrutura de items no carrinho
+  Dado que adiciono produtos ao carrinho
+  Quando o evento add_to_cart é disparado
+  Então cada item no array ecommerce.items deve conter:
+    | campo      |
+    | item_id    |
+    | item_name  |
+    | price      |
+    | quantity   |
+
+Cenário: Adicionar múltiplos produtos ao carrinho simultaneamente
+  Dado que estou na página de produtos
+  Quando adiciono 3 produtos diferentes ao carrinho
+  Então o evento add_to_cart deve ser disparado para cada produto
+  E o data layer deve conter múltiplas entradas de add_to_cart
+
+Cenário: Validar evento de compra com informações de frete e impostos
+  Dado que finalizei uma compra
+  Quando o evento purchase é disparado
+  Então o data layer deve incluir informações de:
+    | campo               | exemplo    |
+    | ecommerce.tax       | 124.97     |
+    | ecommerce.shipping  | 50.00      |
+  E o valor total deve ser a soma de:
+    - Subtotal dos produtos
+    - Impostos
+    - Frete

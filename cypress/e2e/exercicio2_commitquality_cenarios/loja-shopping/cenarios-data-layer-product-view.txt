@@ -1,0 +1,56 @@
+Funcionalidade: Data Layer - Visualização de Produto
+  Como um analista de dados
+  Quero validar os eventos de visualização de produtos no data layer
+  Para garantir que os dados de analytics estão sendo coletados corretamente
+
+Cenário: Enviar evento de visualização de produto
+  Dado que estou na página de um produto
+  Quando o evento view_item é disparado
+  Então o data layer deve conter:
+    | campo                    | valor            |
+    | event                    | view_item        |
+    | ecommerce.currency       | BRL              |
+    | ecommerce.value          | 299.90           |
+    | ecommerce.items[0].item_id | PROD-001       |
+    | ecommerce.items[0].item_name | Notebook Dell |
+    | ecommerce.items[0].price | 299.90           |
+
+Cenário: Validar campos obrigatórios do evento view_item
+  Dado que estou na página de um produto
+  Quando o evento view_item é disparado
+  Então o data layer deve conter os campos obrigatórios:
+    | campo                         |
+    | event                         |
+    | ecommerce                     |
+    | ecommerce.currency            |
+    | ecommerce.value               |
+    | ecommerce.items               |
+    | ecommerce.items[0].item_id    |
+    | ecommerce.items[0].item_name  |
+
+Cenário: Enviar evento de múltiplos produtos visualizados
+  Dado que estou na página de listagem de produtos
+  Quando visualizo 3 produtos
+  E o evento view_item_list é disparado
+  Então o data layer deve conter:
+    | campo                | valor           |
+    | event                | view_item_list  |
+    | ecommerce.items      | array com 3 items |
+  E cada item deve conter:
+    | campo     |
+    | item_id   |
+    | item_name |
+    | price     |
+
+Cenário: Validar evento de visualização com todas as propriedades
+  Dado que estou na página de um produto
+  Quando o evento view_item é disparado com todas as propriedades
+  Então o data layer deve conter:
+    | campo                          | valor        |
+    | ecommerce.items[0].item_id     | PROD-001     |
+    | ecommerce.items[0].item_name   | Notebook Dell |
+    | ecommerce.items[0].item_category | Eletrônicos |
+    | ecommerce.items[0].item_category2 | Computadores |
+    | ecommerce.items[0].item_brand  | Dell         |
+    | ecommerce.items[0].price       | 299.90       |
+    | ecommerce.items[0].quantity    | 1            |
