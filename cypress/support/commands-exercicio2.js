@@ -1,5 +1,4 @@
 // Comandos customizados para os testes do CommitQuality
-// (cópia para o repositório de UI)
 
 const { faker } = require('@faker-js/faker');
 faker.locale = 'pt_BR';
